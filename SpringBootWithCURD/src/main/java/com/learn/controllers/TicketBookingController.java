@@ -43,4 +43,9 @@ public class TicketBookingController {
 		System.out.println("DELETED RECORD");
 	}
 	
+	@PutMapping("/updateticket/{ticketId}/{ticketType}")
+	public Ticket updateTicket(@PathVariable("ticketId") Integer ticketId, @PathVariable("ticketType") String ticketType) {
+		return ticketBookingService.updateTicket(ticketId, ticketType);
+	}
+	
 }
