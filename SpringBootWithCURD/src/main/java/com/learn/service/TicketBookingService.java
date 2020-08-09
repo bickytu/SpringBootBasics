@@ -33,6 +33,13 @@ public class TicketBookingService {
 	public Iterable<Ticket> getAllTicket() {
 		return ticketBookingDao.findAll();
 	}
-
+	
+	public Ticket updateTicket(Integer ticketId, String ticketType) {
+		Optional<Ticket> ticket = ticketBookingDao.findById(ticketId);
+		Ticket t= ticket.get();
+		t.setTicketType(ticketType);
+		ticketBookingDao.save(t);
+		return t;
+	}
 
 }
